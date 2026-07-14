@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /grading-tool/
+Disallow: /CFSP/grading-tool/
