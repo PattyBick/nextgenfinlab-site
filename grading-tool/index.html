@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<title>Grading Gadget — Instructor Access</title>
+<meta name="description" content="Instructor-only access point for the grading gadget. Not for student distribution." />
+<link rel="icon" href="./favicon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:         #101314;
+    --panel:      #171B1D;
+    --panel-line: #2A3033;
+    --ink:        #D8DCDA;
+    --ink-soft:   #8A9390;
+    --amber:      #D98E04;
+    --amber-dim:  #6B5424;
+    --red:        #B23B3B;
+    --focus:      #D98E04;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      repeating-linear-gradient(135deg, rgba(217,142,4,0.035) 0, rgba(217,142,4,0.035) 1px, transparent 1px, transparent 14px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px;
+  }
+
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
+
+  .card{
+    width:100%;
+    max-width:560px;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-top:3px solid var(--amber);
+    border-radius:6px;
+    padding:40px 40px 32px;
+  }
+
+  .badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+    border:1px solid var(--amber-dim);
+    background:rgba(217,142,4,0.08);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:5px 10px;
+    border-radius:3px;
+    margin-bottom:22px;
+  }
+  .badge::before{
+    content:"";
+    width:6px;height:6px;
+    background:var(--amber);
+    display:inline-block;
+    border-radius:50%;
+  }
+
+  h1{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:1.5rem;
+    line-height:1.3;
+    margin:0 0 14px;
+    color:#F1F1EC;
+  }
+
+  p.dek{
+    font-size:.96rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin:0 0 26px;
+    max-width:44ch;
+  }
+
+  .warning{
+    display:flex;
+    gap:12px;
+    background:rgba(178,59,59,0.08);
+    border:1px solid rgba(178,59,59,0.35);
+    border-radius:4px;
+    padding:14px 16px;
+    margin-bottom:28px;
+  }
+  .warning svg{flex:0 0 auto; margin-top:2px;}
+  .warning p{
+    margin:0;
+    font-size:.86rem;
+    line-height:1.55;
+    color:#E3B7B7;
+  }
+  .warning strong{color:#F0D3D3;}
+
+  .gate{
+    border-top:1px solid var(--panel-line);
+    padding-top:24px;
+  }
+  label.ack{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:.86rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+    cursor:pointer;
+    margin-bottom:20px;
+  }
+  label.ack input{
+    margin-top:3px;
+    accent-color:var(--amber);
+    width:15px;height:15px;
+    flex:0 0 auto;
+  }
+
+  .enter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.86rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:#171B1D;
+    background:var(--ink-soft);
+    border:none;
+    border-radius:4px;
+    padding:14px 18px;
+    cursor:not-allowed;
+    pointer-events:none;
+    opacity:.6;
+    transition:background .15s ease, opacity .15s ease;
+  }
+  .enter.is-active{
+    background:var(--amber);
+    cursor:pointer;
+    pointer-events:auto;
+    opacity:1;
+  }
+  .enter.is-active:hover{background:#EBA522;}
+
+  footer{
+    margin-top:26px;
+    padding-top:20px;
+    border-top:1px solid var(--panel-line);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  footer .org{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:.05em;
+  }
+  footer .note{
+    font-size:.76rem;
+    color:#5D6462;
+    max-width:30ch;
+    text-align:right;
+    line-height:1.5;
+  }
+
+  @media (max-width:600px){
+    .card{padding:30px 24px 26px;}
+    footer{flex-direction:column;}
+    footer .note{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <span class="badge">Restricted · Staff only</span>
+
+    <h1>Grading Gadget</h1>
+    <p class="dek">This is the instructor-side grading tool for the Corp Fin – Stock Price case. It contains the fully-solved answer key and is not part of the student-facing site.</p>
+
+    <div class="warning">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B23B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p><strong>If you are a student,</strong> close this page. Opening the grading gadget exposes the answer key for your case and may be treated as an academic-integrity violation.</p>
+    </div>
+
+    <div class="gate">
+      <label class="ack">
+        <input type="checkbox" id="ack" />
+        <span>I am an instructor or TA for this course and understand this link reveals the answer key.</span>
+      </label>
+      <a id="enter" class="enter" href="./grading.html" aria-disabled="true">Open grading gadget →</a>
+    </div>
+
+    <footer>
+      <span class="org">NEXTGEN FINANCE LAB LLC</span>
+      <span class="note">This page is a courtesy speed bump, not access control — treat this URL as confidential.</span>
+    </footer>
+  </div>
+
+  <script>
+    var ack = document.getElementById('ack');
+    var enter = document.getElementById('enter');
+    ack.addEventListener('change', function () {
+      enter.classList.toggle('is-active', ack.checked);
+      enter.setAttribute('aria-disabled', String(!ack.checked));
+    });
+    enter.addEventListener('click', function (e) {
+      if (!ack.checked) e.preventDefault();
+    });
+  </script>
+
+</body>
+</html>
