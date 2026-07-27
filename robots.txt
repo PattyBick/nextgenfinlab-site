@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /CFSP/grading-tool/
+Disallow: /CFBVL/grading-tool/
