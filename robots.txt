@@ -3,3 +3,4 @@ Disallow: /CFCV/grading-tool/
 Disallow: /CFBVL/grading-tool/
 Disallow: /CFRO/grading-tool/
 Disallow: /CFGO/grading-tool/
+Disallow: /CFWCM/grading-tool/
