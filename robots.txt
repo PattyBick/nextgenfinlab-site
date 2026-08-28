@@ -4,3 +4,4 @@ Disallow: /CFBVL/grading-tool/
 Disallow: /CFRO/grading-tool/
 Disallow: /CFGO/grading-tool/
 Disallow: /CFWCM/grading-tool/
+Disallow: /ISPC/grading-tool/
